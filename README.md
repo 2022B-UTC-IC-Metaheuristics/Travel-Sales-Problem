@@ -11,21 +11,21 @@ A continuación se listan algunas de las aplicaciones de este problema.
 Ésta es sin duda una de las utilidades más ingeniosas que puede plantear el problema del viajante de comercio: la creación de placas de circuitos. Este problema se enfoca en dos subproblemas: el orden óptimo de taladrar las placas y los caminos óptimos que comunican los chips. En los  **problemas de perforado**  hemos de tomar las ciudades como las posiciones a perforar y las distancias entre ellas como el tiempo que necesita la máquina en trasladarse de una otra. El punto inicial y final será un punto adicional donde permanece la perforadora mientras descansa. Claramente si estas máquinas no son correctamente programadas el tiempo que tarde en recorrer un orificio u otro puede ser significativo con lo que la producción de placas bajaría en un período de tiempo [2].
 
 ### Problema de conexión de chips
- La idea es minimizar la cantidad de cable necesaria para unir todos los puntos de una placa sin que haya interferencias. Como los chips son de pequeño tamaño no se pueden poner más de dos cables en un único pin. Tomando las ciudades como los pins y la cantidad de cable necesaria para unirlos como la distancia, el problema es equivalente al de viajante de comercio.
+ La idea es minimizar la cantidad de cable necesaria para unir todos los puntos de una placa sin que haya interferencias. Como los chips son de pequeño tamaño no se pueden poner más de dos cables en un único pin. Tomando las ciudades como los pins y la cantidad de cable necesaria para unirlos como la distancia, el problema es equivalente al de viajante de comercio[2].
  
 ### Aplicaciones en internet
  
-Supongamos que el viajante de comercio es un bit de datos, y que las ciudades son servidores de Red distribuidos por todo el planeta. Esta variante del problema del viajante de comercio es algo inherente al uso óptimo de una plataforma masiva de distribución como es Internet. No olvidemos que en cada ruta puede haber miles de ciudades en este caso. Es curiosos como para resolver esta variante algunos investigadores se han inspirado en el comportamiento de las hormigas.  
+Supongamos que el viajante de comercio es un bit de datos, y que las ciudades son servidores de Red distribuidos por todo el planeta. Esta variante del problema del viajante de comercio es algo inherente al uso óptimo de una plataforma masiva de distribución como es Internet. No olvidemos que en cada ruta puede haber miles de ciudades en este caso. Es curiosos como para resolver esta variante algunos investigadores se han inspirado en el comportamiento de las hormigas[2].  
 
 ### Problema de la red de basuras
 
-El problema de la recolección de residuos puede dividirse en 3 grandes tipos: domiciliaria, comercial e industrial. La recolección domiciliaria consiste en atender fundamentalmente casas particulares. La frecuencia puede variar aunque normalmente las rutas suelen repetirse una vez todos los días. La recolección comercial o industrial se encarga de las tiendas, restaurantes o edificios de cocinas. Los objetivos en este tipo de problemas pueden ser diversos: minimizar el número de camiones, la distancia recorrida... Si queremos minimizar la distancia usaremos el problema del viajante de comercio identificando los contenedores o puntos de recogida como las ciudades a visitar. Estos mismos problemas se puede generalizar a los llamados problemas de vehículos o de reparto. Se usan en las empresas de transportes, en correos.
+El problema de la recolección de residuos puede dividirse en 3 grandes tipos: domiciliaria, comercial e industrial. La recolección domiciliaria consiste en atender fundamentalmente casas particulares. La frecuencia puede variar aunque normalmente las rutas suelen repetirse una vez todos los días. La recolección comercial o industrial se encarga de las tiendas, restaurantes o edificios de cocinas. Los objetivos en este tipo de problemas pueden ser diversos: minimizar el número de camiones, la distancia recorrida... Si queremos minimizar la distancia usaremos el problema del viajante de comercio identificando los contenedores o puntos de recogida como las ciudades a visitar. Estos mismos problemas se puede generalizar a los llamados problemas de vehículos o de reparto. Se usan en las empresas de transportes, en correos [2].
 ___
 # PLANTEAMIENTO MATEMÁTICO DEL PROBLEMA
 
 En Traveling Salesman Problem (TSP) existe un conjunto de n ciudades (nodos), **V = {1, 2, 3,..., n}**, y un conjunto de caminos (arcos) uniendo cada una de las ciudades, así el camino **(i,j) Є A**, **cij** es la “distancia”  (*función  objetivo*)  para  ir  de  la  ciudad  **i**  a  la  ciudad  **j**  (**cij**  no  
 necesariamente es igual a **cji**). Un vendedor debe realizar un tour (recorrido) comenzando en una cierta ciudad de origen y luego visitar todas las otras ciudades una única vez y retornar a la ciudad de origen. El problema consiste en hallar el tour (recorrido) de distancia mínima evitando subtours. 
-El problema del TSP tiene el siguiente modelo matemático. 
+El problema del TSP tiene el siguiente modelo matemático[1][9][6][7] . 
 
 ​
 
@@ -36,17 +36,17 @@ El problema del TSP tiene el siguiente modelo matemático.
 Las técnicas heurísticas son algoritmos que encuentran soluciones de buena  
 calidad para problemas combinatoriales complejos; o sea, para problemas tipo  
 NP. Los algoritmos heurísticos son más fáciles de implementar y encuentran  
-buenas soluciones con esfuerzos computacionales relativamente pequeños, sin embargo, renuncian (desde el punto de vista teórico) a encontrar la solución óptima global de un problema. En problemas de gran tamaño rara vez un algoritmo heurístico encuentra la solución óptima global.
+buenas soluciones con esfuerzos computacionales relativamente pequeños, sin embargo, renuncian (desde el punto de vista teórico) a encontrar la solución óptima global de un problema. En problemas de gran tamaño rara vez un algoritmo heurístico encuentra la solución óptima global[1].
 
 Los algoritmos heurísticos se clasifican en algoritmos constructivos (golosos),  
-algoritmos de descomposición y división, algoritmos de reducción, algoritmos de manipulación del modelo y algoritmos de búsqueda usando vecindad. En esta última  categoría  pueden  ser  agrupados  los  Algoritmos  Genéticos  (AG), Simulated Annealing (SA), Búsqueda Tabú (TS), Colonia de Hormigas (ACO) y  GRASP.
+algoritmos de descomposición y división, algoritmos de reducción, algoritmos de manipulación del modelo y algoritmos de búsqueda usando vecindad. En esta última  categoría  pueden  ser  agrupados  los  Algoritmos  Genéticos  (AG), Simulated Annealing (SA), Búsqueda Tabú (TS), Colonia de Hormigas (ACO) y  GRASP[1].
 
 ## Algoritmos genéticos
 Son herramientas matemáticas que imitan a la naturaleza e intentan resolver  
 problemas complejos empleando el concepto de la evolución. El algoritmo  
 ejecuta una búsqueda simultánea en diferentes regiones del espacio factible,  
 realiza una intensificación sobre algunas de ellas y explora otros subespacios a través de un intercambio de información entre configuraciones[1]. 
-Emplea tres  mecanismos básicos que son: La **selección**, el **crossover** y la **mutación**.
+Emplea tres  mecanismos básicos que son: La **selección**, el **crossover** y la **mutación**[1][3][4][5][6][7][8][9].
  
  ### Selección: 
   Es  el  operador genético que  permite elegir  las configuraciones  de  la  población  actual  que  deben  participar  de  la  generación  de  las  configuraciones  de  la  nueva  población  (nueva  generación).  Este  operador  termina  después de  decidir  el número  de  descendientes que debe tener cada configuración de la población actual [8].
